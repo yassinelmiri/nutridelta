@@ -4,228 +4,127 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nutridelta — Le naturel au service de votre bien-être</title>
-<meta name="description" content="Votre bien-être, notre priorité sur les compléments alimentaires naturels et la phytothérapie. Conseils clairs, formules à base de plantes.">
+<meta name="description" content="Votre bien-être, notre priorité sur les compléments alimentaires naturels et la phytothérapie.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --primary:#E31E24;
-    --primary-dark:#c4191e;
-    --black:#111111;
-    --white:#FFFFFF;
-    --gray-light:#F2F2F2;
-    --gray-silver:#D9D9D9;
-    --gray-medium:#808080;
-    --black-charcoal:#292929;
-
-    --ink:var(--black);
-    --muted:var(--gray-medium);
-    --bg:var(--white);
-    --card:var(--white);
-    --border:var(--gray-silver);
-    --radius:8px;
+    --primary:#E31E24; --primary-dark:#c4191e;
+    --black:#111111; --white:#FFFFFF;
+    --gray-light:#F2F2F2; --gray-silver:#D9D9D9;
+    --gray-medium:#808080; --black-charcoal:#292929;
     --shadow:0 6px 24px rgba(17,17,17,.06);
-
-    --font-title:'Montserrat', system-ui, sans-serif;
-    --font-text:'Roboto', system-ui, sans-serif;
-
-    /* ===== MOTIF NID D'ABEILLE (hexagones) ===== */
-    /* Hexagone fin gris clair sur fond blanc — version discrète */
-    --hex-pattern:
-      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='56' height='96' viewBox='0 0 56 96'><g fill='none' stroke='%23E6E6E6' stroke-width='1'><path d='M28 0 L56 16 L56 48 L28 64 L0 48 L0 16 Z'/><path d='M28 64 L56 80 L56 112 L28 128 L0 112 L0 80 Z'/></g></svg>");
-    /* Version hero un peu plus présente (rouge très pâle + gris) */
-    --hex-pattern-hero:
-      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='56' height='96' viewBox='0 0 56 96'><g fill='none' stroke='%23EDEDED' stroke-width='1'><path d='M28 0 L56 16 L56 48 L28 64 L0 48 L0 16 Z'/><path d='M28 64 L56 80 L56 112 L28 128 L0 112 L0 80 Z'/></g></svg>");
+    --font-title:'Montserrat',system-ui,sans-serif;
+    --font-text:'Roboto',system-ui,sans-serif;
+    --hex:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='56' height='96' viewBox='0 0 56 96'><g fill='none' stroke='%23E6E6E6' stroke-width='1'><path d='M28 0 L56 16 L56 48 L28 64 L0 48 L0 16 Z'/><path d='M28 64 L56 80 L56 112 L28 128 L0 112 L0 80 Z'/></g></svg>");
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
-  body{
-    font-family:var(--font-text);
-    font-weight:400;
-    color:var(--black);
-    background:var(--white);
-    line-height:1.65;
-    -webkit-font-smoothing:antialiased;
-    overflow-x:hidden;
-    /* Fond global : nid d'abeille très discret */
-    background-image:var(--hex-pattern);
-    background-size:56px 96px;
-    background-attachment:fixed;
-  }
+  body{font-family:var(--font-text);color:var(--black);background:var(--white);
+    line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden;
+    background-image:var(--hex);background-size:56px 96px;background-attachment:fixed;}
   img{max-width:100%;display:block}
   a{color:inherit;text-decoration:none}
   .container{width:min(1120px,92%);margin-inline:auto}
-
   h1,h2,h3,h4{font-family:var(--font-title);letter-spacing:-.2px}
-  h1,h2{font-weight:800}
-  h3,h4{font-weight:600}
+  h1,h2{font-weight:800} h3,h4{font-weight:600}
+  .hp-field{position:absolute!important;left:-9999px!important;top:-9999px!important;width:1px;height:1px;opacity:0;pointer-events:none}
 
-  /* ---------- HEADER ---------- */
-  header{
-    position:sticky;top:0;z-index:50;
-    background:var(--white);
-    border-bottom:1px solid var(--gray-silver);
-  }
+  header{position:sticky;top:0;z-index:50;background:var(--white);border-bottom:1px solid var(--gray-silver)}
   .nav{display:flex;align-items:center;justify-content:center;padding:16px 0}
   .brand img{height:96px;width:auto;border-radius:4px}
   .brand:hover img{transform:scale(1.02);transition:.25s}
 
-  /* ---------- HERO ---------- */
-  .hero{
-    position:relative;overflow:hidden;
-    background-color:var(--white);
-    background-image:var(--hex-pattern-hero);
-    background-size:56px 96px;
-    padding:72px 0 80px;
-    border-bottom:1px solid var(--gray-silver);
-  }
-  /* Voile blanc pour garantir la lisibilité du texte sur le motif */
-  .hero::before{
-    content:"";position:absolute;inset:0;
-    background:linear-gradient(180deg, rgba(255,255,255,.65), rgba(255,255,255,.85));
-    pointer-events:none;
-  }
+  .hero{position:relative;overflow:hidden;background-color:var(--white);
+    background-image:var(--hex);background-size:56px 96px;
+    padding:72px 0 80px;border-bottom:1px solid var(--gray-silver);}
+  .hero::before{content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg,rgba(255,255,255,.65),rgba(255,255,255,.85));pointer-events:none;}
   .hero .container{position:relative;z-index:1}
   .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
-  .eyebrow{
-    display:inline-flex;align-items:center;gap:8px;
-    background:var(--white);color:var(--black);
-    border:1px solid var(--gray-silver);
-    font-family:var(--font-title);
+  .eyebrow{display:inline-flex;align-items:center;gap:8px;background:var(--white);
+    color:var(--black);border:1px solid var(--gray-silver);font-family:var(--font-title);
     font-weight:600;font-size:.75rem;letter-spacing:1px;text-transform:uppercase;
-    padding:8px 16px;border-radius:4px;margin-bottom:24px;
-  }
+    padding:8px 16px;border-radius:4px;margin-bottom:24px;}
   .eyebrow::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--primary)}
   h1{font-size:clamp(1.9rem,4vw,3rem);line-height:1.15;margin-bottom:20px;color:var(--black)}
   h1 em{font-style:normal;color:var(--primary)}
   .hero p.lead{font-size:1.05rem;color:var(--gray-medium);max-width:54ch;margin-bottom:28px}
   .hero-points{list-style:none;display:grid;gap:14px;margin-bottom:32px}
   .hero-points li{display:flex;align-items:flex-start;gap:12px;font-weight:500;color:var(--black-charcoal)}
-  .check{
-    flex:0 0 20px;width:20px;height:20px;border-radius:50%;
-    background:var(--primary);color:var(--white);display:grid;place-items:center;
-    font-size:.7rem;font-weight:900;margin-top:4px;
-  }
-  .btn-primary{
-    display:inline-flex;align-items:center;gap:10px;
-    background:var(--primary);color:var(--white);
-    font-family:var(--font-title);font-weight:600;font-size:.95rem;
-    letter-spacing:.3px;
-    padding:16px 32px;border-radius:6px;border:none;cursor:pointer;
-    transition:.25s;box-shadow:0 4px 14px rgba(227,30,36,.22);
-  }
+  .check{flex:0 0 20px;width:20px;height:20px;border-radius:50%;background:var(--primary);
+    color:var(--white);display:grid;place-items:center;font-size:.7rem;font-weight:900;margin-top:4px;}
+  .btn-primary{display:inline-flex;align-items:center;gap:10px;background:var(--primary);
+    color:var(--white);font-family:var(--font-title);font-weight:600;font-size:.95rem;
+    letter-spacing:.3px;padding:16px 32px;border-radius:6px;border:none;cursor:pointer;
+    transition:.25s;box-shadow:0 4px 14px rgba(227,30,36,.22);}
   .btn-primary:hover{background:var(--primary-dark);transform:translateY(-1px)}
   .btn-primary:disabled{opacity:.6;cursor:not-allowed;transform:none}
   .hero-note{font-size:.8rem;color:var(--gray-medium);margin-top:16px}
 
-  /* ---------- FORM CARD ---------- */
-  .form-card{
-    background:var(--white);border:1px solid var(--gray-silver);border-radius:12px;
-    padding:36px 32px;box-shadow:var(--shadow);position:relative;
-  }
-  .form-card::before{
-    content:"";position:absolute;inset:0 0 auto 0;height:4px;border-radius:12px 12px 0 0;
-    background:var(--primary);
-  }
+  .form-card{background:var(--white);border:1px solid var(--gray-silver);border-radius:12px;
+    padding:36px 32px;box-shadow:var(--shadow);position:relative;}
+  .form-card::before{content:"";position:absolute;inset:0 0 auto 0;height:4px;
+    border-radius:12px 12px 0 0;background:var(--primary);}
   .form-card h2{font-size:1.3rem;margin-bottom:8px;color:var(--black)}
   .form-card > p{color:var(--gray-medium);font-size:.9rem;margin-bottom:24px}
   .field{margin-bottom:16px}
-  .field label{
-    display:block;font-family:var(--font-title);font-size:.75rem;font-weight:600;
-    text-transform:uppercase;letter-spacing:.6px;margin-bottom:8px;color:var(--black-charcoal);
-  }
+  .field label{display:block;font-family:var(--font-title);font-size:.75rem;font-weight:600;
+    text-transform:uppercase;letter-spacing:.6px;margin-bottom:8px;color:var(--black-charcoal);}
   .field label .req{color:var(--primary)}
-  .field input,.field select{
-    width:100%;padding:13px 15px;border:1px solid var(--gray-silver);border-radius:6px;
-    font-size:.95rem;font-family:var(--font-text);background:var(--white);color:var(--black);transition:.2s;
-  }
+  .field input,.field select{width:100%;padding:13px 15px;border:1px solid var(--gray-silver);
+    border-radius:6px;font-size:.95rem;font-family:var(--font-text);background:var(--white);
+    color:var(--black);transition:.2s;}
   .field input::placeholder{color:var(--gray-medium)}
-  .field input:focus,.field select:focus{
-    outline:none;border-color:var(--black);box-shadow:0 0 0 3px rgba(17,17,17,.06);
-  }
-  .field input:invalid:not(:placeholder-shown){border-color:var(--primary)}
-  .consent{display:flex;gap:10px;align-items:flex-start;font-size:.78rem;color:var(--gray-medium);margin:20px 0}
+  .field input:focus,.field select:focus{outline:none;border-color:var(--black);
+    box-shadow:0 0 0 3px rgba(17,17,17,.06);}
+  .consent{display:flex;gap:10px;align-items:flex-start;font-size:.78rem;
+    color:var(--gray-medium);margin:20px 0;}
   .consent input{margin-top:3px;accent-color:var(--primary);width:16px;height:16px;flex:0 0 16px}
   .form-btn{width:100%;justify-content:center}
   .form-btn.success{background:var(--black);box-shadow:0 4px 14px rgba(17,17,17,.2)}
   .form-btn.success:hover{background:var(--black-charcoal)}
-  .form-msg{
-    display:none;margin-top:16px;padding:14px 16px;border-radius:6px;
-    font-size:.9rem;font-weight:500;text-align:center;
-  }
+  .form-msg{display:none;margin-top:16px;padding:14px 16px;border-radius:6px;
+    font-size:.9rem;font-weight:500;text-align:center;}
   .form-msg.show{display:block;animation:fadeUp .4s ease}
   .form-msg.ok{background:var(--gray-light);color:var(--black);border:1px solid var(--gray-silver)}
   .form-msg.err{background:#fdecea;color:var(--primary-dark);border:1px solid #f5c6c2}
   @keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 
-  /* ---------- SECTIONS ---------- */
   section{padding:80px 0;position:relative}
-
-  /* Section "pourquoi" : fond gris clair + motif hexagonal plus dense */
-  .why{
-    background-color:var(--gray-light);
-    background-image:
-      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='56' height='96' viewBox='0 0 56 96'><g fill='none' stroke='%23E0E0E0' stroke-width='1'><path d='M28 0 L56 16 L56 48 L28 64 L0 48 L0 16 Z'/><path d='M28 64 L56 80 L56 112 L28 128 L0 112 L0 80 Z'/></g></svg>");
-    background-size:56px 96px;
-    border-top:1px solid var(--gray-silver);
-    border-bottom:1px solid var(--gray-silver);
-  }
+  .why{background-color:var(--gray-light);background-image:var(--hex);
+    background-size:56px 96px;border-top:1px solid var(--gray-silver);
+    border-bottom:1px solid var(--gray-silver);}
   .why-container{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;position:relative;z-index:1}
-  .why-image img{
-    width:100%;height:auto;border-radius:8px;
-    box-shadow:var(--shadow);object-fit:cover;
-    border:1px solid var(--gray-silver);
-  }
-  .why-content h2{
-    font-size:clamp(1.6rem,3vw,2.2rem);
-    color:var(--black);margin-bottom:20px;line-height:1.2;
-  }
-  .why-content h2::after{
-    content:"";display:block;width:56px;height:3px;
-    background:var(--primary);border-radius:2px;margin-top:16px;
-  }
+  .why-image img{width:100%;height:auto;border-radius:8px;box-shadow:var(--shadow);
+    object-fit:cover;border:1px solid var(--gray-silver);}
+  .why-content h2{font-size:clamp(1.6rem,3vw,2.2rem);color:var(--black);margin-bottom:20px;line-height:1.2}
+  .why-content h2::after{content:"";display:block;width:56px;height:3px;
+    background:var(--primary);border-radius:2px;margin-top:16px;}
   .why-content p{color:var(--gray-medium);font-size:1rem;line-height:1.75;margin-bottom:18px}
   .why-content .source{font-size:.8rem;color:var(--gray-medium);font-style:italic;margin-bottom:26px}
-  .why-content .btn-primary{margin-top:6px}
 
-  /* ---------- FINAL CTA ---------- */
-  /* Section noire : motif hexa en rouge sombre très subtil */
-  .final{
-    background-color:var(--black);color:var(--white);text-align:center;
-    background-image:
-      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='56' height='96' viewBox='0 0 56 96'><g fill='none' stroke='%23222222' stroke-width='1'><path d='M28 0 L56 16 L56 48 L28 64 L0 48 L0 16 Z'/><path d='M28 64 L56 80 L56 112 L28 128 L0 112 L0 80 Z'/></g></svg>");
-    background-size:56px 96px;
-  }
+  .final{background-color:var(--black);color:var(--white);text-align:center;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='56' height='96' viewBox='0 0 56 96'><g fill='none' stroke='%23222222' stroke-width='1'><path d='M28 0 L56 16 L56 48 L28 64 L0 48 L0 16 Z'/><path d='M28 64 L56 80 L56 112 L28 128 L0 112 L0 80 Z'/></g></svg>");
+    background-size:56px 96px;}
   .final .container{position:relative;z-index:1}
   .final h2{font-size:clamp(1.6rem,3vw,2.3rem);margin-bottom:16px;color:var(--white)}
   .final p{color:var(--gray-silver);max-width:52ch;margin:0 auto 32px}
-  .final .btn-primary{background:var(--primary);color:var(--white);box-shadow:0 6px 20px rgba(227,30,36,.35)}
-  .final .btn-primary:hover{background:var(--primary-dark);transform:translateY(-1px)}
 
-  /* ---------- FOOTER ---------- */
-  footer{
-    background:var(--white);color:var(--black);
-    padding:56px 0 28px;font-size:.9rem;
-    border-top:1px solid var(--gray-silver);
-  }
+  footer{background:var(--white);color:var(--black);padding:56px 0 28px;
+    font-size:.9rem;border-top:1px solid var(--gray-silver);}
   .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;margin-bottom:40px}
-  footer h4{
-    color:var(--black);font-size:.85rem;margin-bottom:14px;
-    text-transform:uppercase;letter-spacing:1px;font-weight:600;
-  }
+  footer h4{color:var(--black);font-size:.85rem;margin-bottom:14px;
+    text-transform:uppercase;letter-spacing:1px;font-weight:600;}
   footer p,footer li{color:var(--gray-medium);font-size:.85rem;line-height:1.8}
-  footer ul{list-style:none}
   footer a{color:var(--black);font-weight:500}
   footer a:hover{color:var(--primary)}
   .foot-brand{margin-bottom:16px}
   .foot-brand img{height:92px;border-radius:4px}
-  .foot-bottom{
-    border-top:1px solid var(--gray-silver);
-    padding-top:24px;text-align:center;font-size:.75rem;color:var(--gray-medium);
-  }
+  .foot-bottom{border-top:1px solid var(--gray-silver);padding-top:24px;
+    text-align:center;font-size:.75rem;color:var(--gray-medium);}
 
-  /* ---------- RESPONSIVE ---------- */
   @media (max-width:960px){
     .hero-grid{grid-template-columns:1fr;gap:40px}
     .foot-grid{grid-template-columns:1fr 1fr}
@@ -239,14 +138,11 @@
     .form-card{padding:28px 22px}
     .foot-grid{grid-template-columns:1fr;gap:28px}
     section{padding:56px 0}
-    body{background-size:40px 68px}
-    .hero,.why,.final{background-size:40px 68px}
   }
 </style>
 </head>
 <body>
 
-<!-- HEADER -->
 <header>
   <div class="container nav">
     <a href="#" class="brand" aria-label="Nutridelta">
@@ -255,46 +151,50 @@
   </div>
 </header>
 
-<!-- HERO -->
 <section class="hero">
   <div class="container hero-grid">
     <div>
       <span class="eyebrow">Suivi gratuit · Bien-être au naturel</span>
       <h1>Le naturel au service de <em>votre bien-être</em>, chaque jour.</h1>
       <p class="lead">
-        Découvrez l'univers de la phytothérapie et des compléments alimentaires à travers les bienfaits des plantes, des vitamines et des nutriments essentiels. Une approche naturelle pour mieux comprendre les besoins de votre organisme et préserver votre équilibre au quotidien.
+        Découvrez l'univers de la phytothérapie et des compléments alimentaires à travers les bienfaits des plantes, des vitamines et des nutriments essentiels.
       </p>
       <ul class="hero-points">
         <li><span class="check">✓</span> Des conseils concrets sur les plantes et les nutriments</li>
         <li><span class="check">✓</span> Envoi immédiat par email, sans engagement</li>
       </ul>
-      <button class="btn-primary" onclick="document.getElementById('guide-form').scrollIntoView({behavior:'smooth'})">
+      <button type="button" class="btn-primary" onclick="document.getElementById('guide-form').scrollIntoView({behavior:'smooth'})">
         Contacter un conseiller(e) →
       </button>
       <p class="hero-note">Marque française · Société THE FOLLOWER · Montguyon (17)</p>
     </div>
 
-    <!-- FORMULAIRE -->
     <div class="form-card" id="guide-form">
       <h2>Votre bien-être, notre priorité</h2>
       <p>En remplissant ce formulaire, vous acceptez de bénéficier de conseils gratuits et personnalisés.</p>
 
       <form id="nutriForm" novalidate>
+        <!-- Honeypot anti-spam -->
+        <div class="hp-field" aria-hidden="true">
+          <label for="botcheck">Ne pas remplir</label>
+          <input type="checkbox" name="botcheck" id="botcheck" tabindex="-1" autocomplete="off">
+        </div>
+
         <div class="field">
           <label for="prenom">Prénom <span class="req">*</span></label>
-          <input type="text" id="prenom" name="prenom" placeholder="Votre prénom" required>
+          <input type="text" id="prenom" name="prenom" placeholder="Votre prénom" required maxlength="50" autocomplete="given-name">
         </div>
         <div class="field">
           <label for="nom">Nom <span class="req">*</span></label>
-          <input type="text" id="nom" name="nom" placeholder="Votre nom" required>
+          <input type="text" id="nom" name="nom" placeholder="Votre nom" required maxlength="50" autocomplete="family-name">
         </div>
         <div class="field">
           <label for="email">Email <span class="req">*</span></label>
-          <input type="email" id="email" name="email" placeholder="vous@exemple.fr" required>
+          <input type="email" id="email" name="email" placeholder="vous@exemple.fr" required maxlength="120" autocomplete="email">
         </div>
         <div class="field">
           <label for="telephone">Téléphone</label>
-          <input type="tel" id="telephone" name="telephone" placeholder="06 12 34 56 78">
+          <input type="tel" id="telephone" name="telephone" placeholder="06 12 34 56 78" maxlength="20" autocomplete="tel" pattern="[0-9+\s().-]{6,20}">
         </div>
         <div class="field">
           <label for="sujet">Votre centre d'intérêt</label>
@@ -310,7 +210,7 @@
         </div>
 
         <label class="consent">
-          <input type="checkbox" id="consent" required>
+          <input type="checkbox" id="consent" name="consent" required value="oui">
           <span>J'accepte que mes données soient utilisées par Nutridelta (THE FOLLOWER) pour m'envoyer et, si je le souhaite, me contacter. Elles ne sont ni vendues ni cédées.</span>
         </label>
 
@@ -323,56 +223,43 @@
   </div>
 </section>
 
-<!-- WHY NATURAL -->
 <section class="why">
   <div class="container why-container">
     <div class="why-image">
-      <img src="https://i.pinimg.com/1200x/d9/9f/e6/d99fe634af4cfa27b557ac35882f75f1.jpg" alt="Femme souriante au naturel">
+      <img src="https://i.pinimg.com/1200x/d9/9f/e6/d99fe634af4cfa27b557ac35882f75f1.jpg" alt="Femme souriante au naturel" loading="lazy">
     </div>
     <div class="why-content">
       <h2>Pourquoi le naturel ?</h2>
-      <p>
-        Prendre soin de soi, en confiance. Nos formules associent plantes, vitamines
-        et nutriments, avec une transparence totale sur la composition.
-      </p>
-      <p>
-        Mélisse, houblon, passiflore, ginseng, acérola… des actifs végétaux sélectionnés
-        avec soin pour accompagner votre équilibre au quotidien.
-      </p>
+      <p>Prendre soin de soi, en confiance. Nos formules associent plantes, vitamines et nutriments, avec une transparence totale sur la composition.</p>
+      <p>Mélisse, houblon, passiflore, ginseng, acérola… des actifs végétaux sélectionnés avec soin pour accompagner votre équilibre au quotidien.</p>
       <p class="source">Nutridelta est éditée par THE FOLLOWER, société basée à Montguyon, en Charente-Maritime.</p>
-      <button class="btn-primary" onclick="document.getElementById('guide-form').scrollIntoView({behavior:'smooth'})">
+      <button type="button" class="btn-primary" onclick="document.getElementById('guide-form').scrollIntoView({behavior:'smooth'})">
         Contacter un conseiller(e) →
       </button>
     </div>
   </div>
 </section>
 
-<!-- FINAL CTA -->
 <section class="final">
   <div class="container">
     <h2>Prenez soin de vous, au naturel</h2>
     <p>Votre Suivi gratuit vous attend. Il suffit de laisser votre email pour le recevoir immédiatement.</p>
-    <button class="btn-primary" onclick="document.getElementById('guide-form').scrollIntoView({behavior:'smooth'})">
+    <button type="button" class="btn-primary" onclick="document.getElementById('guide-form').scrollIntoView({behavior:'smooth'})">
       Contacter un conseiller(e)
     </button>
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <div class="container">
     <div class="foot-grid">
       <div>
-        <div class="foot-brand">
-          <img src="./images/logo.jpg" alt="Nutridelta">
-        </div>
+        <div class="foot-brand"><img src="./images/logo.jpg" alt="Nutridelta" loading="lazy"></div>
         <p>Marque française de compléments alimentaires et de produits de phytothérapie, éditée par THE FOLLOWER.</p>
       </div>
       <div>
         <h4>Nous contacter</h4>
-        <p>THE FOLLOWER – Nutridelta<br>
-        32 route de Bourdeleau<br>
-        17270 Montguyon, France</p>
+        <p>THE FOLLOWER – Nutridelta<br>32 route de Bourdeleau<br>17270 Montguyon, France</p>
         <p>Tél. : <a href="tel:0972171408">09 72 17 14 08</a> (appel non surtaxé)<br>
         Email : <a href="mailto:contact@nutridelta.fr">contact@nutridelta.fr</a></p>
       </div>
@@ -387,82 +274,112 @@
   </div>
 </footer>
 
+<!-- EmailJS SDK -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script>
-document.getElementById('year').textContent = new Date().getFullYear();
+  // Initialisation EmailJS avec la clé publique
+  emailjs.init("s7GohN6FyYnIRByGJ");
 
-/* ============================================================
-   FORMULAIRE
-   ============================================================ */
-const form = document.getElementById('nutriForm');
-const btn  = document.getElementById('submitBtn');
-const msg  = document.getElementById('formMsg');
+  const SERVICE_ID  = "service_knpv0le";
+  const TEMPLATE_ID = "template_7ukwad7";
 
-const requiredFields = ['prenom','nom','email','consent'];
+  document.getElementById('year').textContent = new Date().getFullYear();
 
-function checkFormState(){
-  let allValid = true;
+  const form = document.getElementById('nutriForm');
+  const btn  = document.getElementById('submitBtn');
+  const msg  = document.getElementById('formMsg');
+  const requiredFields = ['prenom','nom','email','consent'];
+
+  function checkFormState(){
+    let ok = true;
+    requiredFields.forEach(id => {
+      const el = document.getElementById(id);
+      if (el.type === 'checkbox'){ if (!el.checked) ok = false; }
+      else { if (!el.value.trim() || !el.checkValidity()) ok = false; }
+    });
+    btn.disabled = !ok;
+  }
   requiredFields.forEach(id => {
     const el = document.getElementById(id);
-    if (el.type === 'checkbox'){
-      if (!el.checked) allValid = false;
-    } else {
-      if (!el.value.trim() || !el.checkValidity()) allValid = false;
+    el.addEventListener('input', checkFormState);
+    el.addEventListener('change', checkFormState);
+  });
+  checkFormState();
+
+  let lastSubmit = 0;
+
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    msg.className = 'form-msg'; msg.textContent = '';
+
+    // Honeypot
+    if (document.getElementById('botcheck').checked) {
+      msg.className = 'form-msg err show';
+      msg.textContent = 'Spam détecté.';
+      return;
+    }
+    if (Date.now() - lastSubmit < 15000) {
+      msg.className = 'form-msg err show';
+      msg.textContent = 'Veuillez patienter avant de renvoyer.';
+      return;
+    }
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      msg.className = 'form-msg err show';
+      msg.textContent = 'Merci de remplir correctement les champs obligatoires.';
+      return;
+    }
+
+    btn.disabled = true;
+    btn.textContent = 'Envoi en cours…';
+
+    const prenom    = document.getElementById('prenom').value.trim();
+    const nom       = document.getElementById('nom').value.trim();
+    const email     = document.getElementById('email').value.trim();
+    const telephone = document.getElementById('telephone').value.trim();
+    const sujet     = document.getElementById('sujet').value;
+    const consent   = document.getElementById('consent').checked;
+
+    // Variables attendues par le template
+    const templateParams = {
+      from_name:      prenom + ' ' + nom,
+      from_email:     email,
+      reply_to:       email,
+      prenom:         prenom,
+      nom:            nom,
+      phone:          telephone || '—',
+      subject_choice: sujet || '—',
+      consent:        consent ? 'Oui' : 'Non',
+      date_envoi:     new Date().toLocaleString('fr-FR'),
+      message:        'Nouveau lead via le site Nutridelta'
+    };
+
+    try {
+      await emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams);
+      lastSubmit = Date.now();
+      btn.textContent = '✓ Validé — Votre demande a bien été envoyée';
+      btn.classList.add('success');
+      msg.className = 'form-msg ok show';
+      msg.innerHTML = 'Merci <strong>' + prenom + '</strong> ! Votre demande a bien été transmise.';
+      form.reset();
+      btn.disabled = true;
+      checkFormState();
+    } catch (err) {
+      console.error('EmailJS error:', err);
+      btn.disabled = false;
+      btn.textContent = 'Contacter un conseiller(e)';
+      msg.className = 'form-msg err show';
+      msg.textContent = 'Erreur : ' + (err.text || err.message || 'veuillez réessayer.');
     }
   });
-  btn.disabled = !allValid;
-}
 
-requiredFields.forEach(id => {
-  const el = document.getElementById(id);
-  el.addEventListener('input', checkFormState);
-  el.addEventListener('change', checkFormState);
-});
-document.getElementById('sujet').addEventListener('change', checkFormState);
-checkFormState();
-
-form.addEventListener('submit', async function (e) {
-  e.preventDefault();
-  msg.className = 'form-msg';
-  msg.textContent = '';
-
-  if (!form.checkValidity()) {
-    form.reportValidity();
-    msg.className = 'form-msg err show';
-    msg.textContent = 'Merci de remplir correctement les champs obligatoires.';
-    return;
-  }
-
-  const data = {
-    prenom:    document.getElementById('prenom').value.trim(),
-    nom:       document.getElementById('nom').value.trim(),
-    email:     document.getElementById('email').value.trim(),
-    telephone: document.getElementById('telephone').value.trim(),
-    sujet:     document.getElementById('sujet').value,
-    consent:   document.getElementById('consent').checked,
-    date:      new Date().toLocaleString('fr-FR')
-  };
-
-  btn.disabled = true;
-  btn.textContent = 'Envoi en cours…';
-
-  try {
-    await new Promise(resolve => setTimeout(resolve, 900));
-
-    btn.textContent = '✓ Validé — Votre demande a bien été envoyée';
-    btn.classList.add('success');
-    msg.className = 'form-msg ok show';
-    msg.innerHTML = 'Merci <strong>' + data.prenom + '</strong> ! Votre Suivi gratuit sera envoyé à <strong>' + data.email + '</strong> dans quelques instants.';
-
-    form.reset();
-    btn.disabled = true;
-
-  } catch (err) {
-    btn.disabled = false;
-    btn.textContent = 'Contacter un conseiller(e)';
-    msg.className = 'form-msg err show';
-    msg.textContent = 'Une erreur est survenue. Merci de réessayer ou de nous écrire à contact@nutridelta.fr.';
-  }
-});
+  // Dissuasif uniquement
+  document.addEventListener('contextmenu', e => e.preventDefault());
+  document.addEventListener('keydown', e => {
+    if (e.key === 'F12' ||
+        (e.ctrlKey && e.shiftKey && ['I','J','C','K'].includes(e.key.toUpperCase())) ||
+        (e.ctrlKey && e.key.toUpperCase() === 'U')) e.preventDefault();
+  });
 </script>
 </body>
 </html>
