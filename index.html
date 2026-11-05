@@ -4,28 +4,41 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nutridelta — Le naturel au service de votre bien-être</title>
-<meta name="description" content="Recevez votre guide gratuit sur les compléments alimentaires naturels et la phytothérapie. Conseils clairs, formules à base de plantes.">
+<meta name="description" content="Votre bien-être, notre priorité sur les compléments alimentaires naturels et la phytothérapie. Conseils clairs, formules à base de plantes.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --primary:#f12f23;
-    --primary-dark:#c9241a;
-    --green:#2e7d4f;
-    --green-soft:#e8f3ec;
-    --ink:#1f2421;
-    --muted:#5c6660;
-    --bg:#fbfaf7;
-    --card:#ffffff;
-    --border:#e6e3dc;
-    --radius:16px;
-    --shadow:0 10px 30px rgba(31,36,33,.08);
+    --primary:#E31E24;
+    --primary-dark:#c4191e;
+    --black:#111111;
+    --white:#FFFFFF;
+    --gray-light:#F2F2F2;
+    --gray-silver:#D9D9D9;
+    --gray-medium:#808080;
+    --black-charcoal:#292929;
+
+    /* Alias pour compatibilité */
+    --ink:var(--black);
+    --muted:var(--gray-medium);
+    --bg:var(--white);
+    --card:var(--white);
+    --border:var(--gray-silver);
+    --radius:8px;
+    --shadow:0 6px 24px rgba(17,17,17,.06);
+
+    --font-title:'Montserrat', system-ui, sans-serif;
+    --font-text:'Roboto', system-ui, sans-serif;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
   body{
-    font-family:'Segoe UI',system-ui,-apple-system,'Helvetica Neue',Arial,sans-serif;
-    color:var(--ink);
-    background:var(--bg);
-    line-height:1.6;
+    font-family:var(--font-text);
+    font-weight:400;
+    color:var(--black);
+    background:var(--white);
+    line-height:1.65;
     -webkit-font-smoothing:antialiased;
     overflow-x:hidden;
   }
@@ -33,283 +46,190 @@
   a{color:inherit;text-decoration:none}
   .container{width:min(1120px,92%);margin-inline:auto}
 
-  /* ---------- HEADER (logo only, fond blanc) ---------- */
+  h1,h2,h3,h4{font-family:var(--font-title);letter-spacing:-.2px}
+  h1{font-weight:800}
+  h2{font-weight:800}
+  h3{font-weight:600}
+  h4{font-weight:600}
+
+  /* ---------- HEADER ---------- */
   header{
     position:sticky;top:0;z-index:50;
-    background:#ffffff;
-    backdrop-filter:blur(10px);
-    border-bottom:1px solid var(--border);
+    background:var(--white);
+    border-bottom:1px solid var(--gray-silver);
   }
-  .nav{display:flex;align-items:center;justify-content:center;padding:14px 0}
-  .brand img{height:56px;width:auto;border-radius:10px}
-  .brand:hover img{transform:scale(1.03);transition:.25s}
+  .nav{display:flex;align-items:center;justify-content:center;padding:16px 0}
+  .brand img{height:96px;width:auto;border-radius:4px}
+  .brand:hover img{transform:scale(1.02);transition:.25s}
 
   /* ---------- HERO ---------- */
   .hero{
     position:relative;overflow:hidden;
-    background:
-      radial-gradient(900px 420px at 85% -10%, rgba(46,125,79,.10), transparent 60%),
-      radial-gradient(700px 380px at 0% 110%, rgba(241,47,35,.07), transparent 60%),
-      var(--bg);
-    padding:64px 0 72px;
+    background:var(--white);
+    padding:72px 0 80px;
+    border-bottom:1px solid var(--gray-silver);
   }
   .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
   .eyebrow{
     display:inline-flex;align-items:center;gap:8px;
-    background:var(--green-soft);color:var(--green);
-    font-weight:700;font-size:.8rem;letter-spacing:.6px;text-transform:uppercase;
-    padding:7px 16px;border-radius:999px;margin-bottom:22px;
+    background:var(--gray-light);color:var(--black);
+    font-family:var(--font-title);
+    font-weight:600;font-size:.75rem;letter-spacing:1px;text-transform:uppercase;
+    padding:8px 16px;border-radius:4px;margin-bottom:24px;
   }
-  .eyebrow::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--primary)}
-  h1{font-size:clamp(1.9rem,4vw,3rem);line-height:1.15;letter-spacing:-.5px;margin-bottom:20px}
+  .eyebrow::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--primary)}
+  h1{font-size:clamp(1.9rem,4vw,3rem);line-height:1.15;margin-bottom:20px;color:var(--black)}
   h1 em{font-style:normal;color:var(--primary)}
-  .hero p.lead{font-size:1.1rem;color:var(--muted);max-width:54ch;margin-bottom:26px}
-  .hero-points{list-style:none;display:grid;gap:12px;margin-bottom:30px}
-  .hero-points li{display:flex;align-items:flex-start;gap:12px;font-weight:500}
+  .hero p.lead{font-size:1.05rem;color:var(--gray-medium);max-width:54ch;margin-bottom:28px}
+  .hero-points{list-style:none;display:grid;gap:14px;margin-bottom:32px}
+  .hero-points li{display:flex;align-items:flex-start;gap:12px;font-weight:500;color:var(--black-charcoal)}
   .check{
-    flex:0 0 22px;width:22px;height:22px;border-radius:50%;
-    background:var(--green);color:#fff;display:grid;place-items:center;
-    font-size:.72rem;font-weight:900;margin-top:3px;
+    flex:0 0 20px;width:20px;height:20px;border-radius:50%;
+    background:var(--primary);color:var(--white);display:grid;place-items:center;
+    font-size:.7rem;font-weight:900;margin-top:4px;
   }
   .btn-primary{
     display:inline-flex;align-items:center;gap:10px;
-    background:var(--primary);color:#fff;font-weight:700;font-size:1rem;
-    padding:16px 34px;border-radius:999px;border:none;cursor:pointer;
-    transition:.25s;box-shadow:0 8px 22px rgba(241,47,35,.25);
+    background:var(--primary);color:var(--white);
+    font-family:var(--font-title);font-weight:600;font-size:.95rem;
+    letter-spacing:.3px;
+    padding:16px 32px;border-radius:6px;border:none;cursor:pointer;
+    transition:.25s;box-shadow:0 4px 14px rgba(227,30,36,.22);
   }
-  .btn-primary:hover{background:var(--primary-dark);transform:translateY(-2px)}
-  .btn-primary:disabled{opacity:.75;cursor:not-allowed;transform:none}
-  .hero-note{font-size:.82rem;color:var(--muted);margin-top:14px}
+  .btn-primary:hover{background:var(--primary-dark);transform:translateY(-1px)}
+  .btn-primary:disabled{opacity:.6;cursor:not-allowed;transform:none}
+  .hero-note{font-size:.8rem;color:var(--gray-medium);margin-top:16px}
 
   /* ---------- FORM CARD ---------- */
   .form-card{
-    background:var(--card);border:1px solid var(--border);border-radius:22px;
-    padding:34px 30px;box-shadow:var(--shadow);position:relative;
+    background:var(--white);border:1px solid var(--gray-silver);border-radius:12px;
+    padding:36px 32px;box-shadow:var(--shadow);position:relative;
   }
   .form-card::before{
-    content:"";position:absolute;inset:0 0 auto 0;height:6px;border-radius:22px 22px 0 0;
-    background:linear-gradient(90deg,var(--primary),#ff8a3d,var(--green));
+    content:"";position:absolute;inset:0 0 auto 0;height:4px;border-radius:12px 12px 0 0;
+    background:var(--primary);
   }
-  .form-card h2{font-size:1.35rem;margin-bottom:6px}
-  .form-card > p{color:var(--muted);font-size:.92rem;margin-bottom:22px}
+  .form-card h2{font-size:1.3rem;margin-bottom:8px;color:var(--black)}
+  .form-card > p{color:var(--gray-medium);font-size:.9rem;margin-bottom:24px}
   .field{margin-bottom:16px}
-  .field label{display:block;font-size:.82rem;font-weight:700;margin-bottom:6px;letter-spacing:.2px}
+  .field label{
+    display:block;font-family:var(--font-title);font-size:.75rem;font-weight:600;
+    text-transform:uppercase;letter-spacing:.6px;margin-bottom:8px;color:var(--black-charcoal);
+  }
   .field label .req{color:var(--primary)}
   .field input,.field select{
-    width:100%;padding:13px 15px;border:1.5px solid var(--border);border-radius:12px;
-    font-size:.95rem;font-family:inherit;background:#fff;color:var(--ink);transition:.2s;
+    width:100%;padding:13px 15px;border:1px solid var(--gray-silver);border-radius:6px;
+    font-size:.95rem;font-family:var(--font-text);background:var(--white);color:var(--black);transition:.2s;
   }
+  .field input::placeholder{color:var(--gray-medium)}
   .field input:focus,.field select:focus{
-    outline:none;border-color:var(--green);box-shadow:0 0 0 4px rgba(46,125,79,.12);
+    outline:none;border-color:var(--black);box-shadow:0 0 0 3px rgba(17,17,17,.06);
   }
   .field input:invalid:not(:placeholder-shown){border-color:var(--primary)}
-  .consent{display:flex;gap:10px;align-items:flex-start;font-size:.78rem;color:var(--muted);margin:18px 0}
-  .consent input{margin-top:3px;accent-color:var(--green);width:16px;height:16px;flex:0 0 16px}
+  .consent{display:flex;gap:10px;align-items:flex-start;font-size:.78rem;color:var(--gray-medium);margin:20px 0}
+  .consent input{margin-top:3px;accent-color:var(--primary);width:16px;height:16px;flex:0 0 16px}
   .form-btn{width:100%;justify-content:center}
-  .form-btn.success{background:var(--green);box-shadow:0 8px 22px rgba(46,125,79,.3)}
-  .form-btn.success:hover{background:#256b42}
+  .form-btn.success{background:var(--black);box-shadow:0 4px 14px rgba(17,17,17,.2)}
+  .form-btn.success:hover{background:var(--black-charcoal)}
   .form-msg{
-    display:none;margin-top:14px;padding:14px 16px;border-radius:12px;
-    font-size:.9rem;font-weight:600;text-align:center;
+    display:none;margin-top:16px;padding:14px 16px;border-radius:6px;
+    font-size:.9rem;font-weight:500;text-align:center;
   }
   .form-msg.show{display:block;animation:fadeUp .4s ease}
-  .form-msg.ok{background:var(--green-soft);color:var(--green);border:1px solid #bfe0cc}
+  .form-msg.ok{background:var(--gray-light);color:var(--black);border:1px solid var(--gray-silver)}
   .form-msg.err{background:#fdecea;color:var(--primary-dark);border:1px solid #f5c6c2}
   @keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 
   /* ---------- SECTIONS ---------- */
-  section{padding:72px 0}
-  .section-head{max-width:680px;margin:0 auto 44px;text-align:center}
+  section{padding:80px 0}
+  .section-head{max-width:680px;margin:0 auto 48px;text-align:center}
   .section-head .kicker{
-    display:inline-block;color:var(--green);font-weight:800;font-size:.78rem;
-    letter-spacing:1.2px;text-transform:uppercase;margin-bottom:12px;
+    display:inline-block;color:var(--primary);font-family:var(--font-title);
+    font-weight:800;font-size:.75rem;letter-spacing:1.4px;text-transform:uppercase;margin-bottom:12px;
   }
-  .section-head h2{font-size:clamp(1.6rem,3vw,2.2rem);letter-spacing:-.4px;margin-bottom:14px}
-  .section-head p{color:var(--muted);font-size:1.02rem}
+  .section-head h2{font-size:clamp(1.6rem,3vw,2.2rem);margin-bottom:16px;color:var(--black)}
+  .section-head p{color:var(--gray-medium);font-size:1rem}
 
-  /* ---------- WHY NATURAL (image + texte) ---------- */
+  /* ---------- WHY NATURAL ---------- */
   .why{
-    background:#fff;
-    border-top:1px solid var(--border);
-    border-bottom:1px solid var(--border);
+    background:var(--gray-light);
+    border-top:1px solid var(--gray-silver);
+    border-bottom:1px solid var(--gray-silver);
   }
   .why-container{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:64px;
-    align-items:center;
+    display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;
   }
   .why-image img{
-    width:100%;
-    height:auto;
-    border-radius:var(--radius);
-    box-shadow:var(--shadow);
-    object-fit:cover;
+    width:100%;height:auto;border-radius:8px;
+    box-shadow:var(--shadow);object-fit:cover;
   }
   .why-content h2{
     font-size:clamp(1.6rem,3vw,2.2rem);
-    letter-spacing:-.4px;
-    color:var(--ink);
-    margin-bottom:20px;
-    line-height:1.2;
+    color:var(--black);margin-bottom:20px;line-height:1.2;
   }
   .why-content h2::after{
-    content:"";
-    display:block;
-    width:64px;
-    height:4px;
-    background:var(--primary);
-    border-radius:2px;
-    margin-top:16px;
+    content:"";display:block;width:56px;height:3px;
+    background:var(--primary);border-radius:2px;margin-top:16px;
   }
-  .why-content p{
-    color:var(--muted);
-    font-size:1.02rem;
-    line-height:1.7;
-    margin-bottom:18px;
-  }
-  .why-content .source{
-    font-size:.82rem;
-    color:var(--muted);
-    font-style:italic;
-    margin-bottom:26px;
-  }
+  .why-content p{color:var(--gray-medium);font-size:1rem;line-height:1.75;margin-bottom:18px}
+  .why-content .source{font-size:.8rem;color:var(--gray-medium);font-style:italic;margin-bottom:26px}
   .why-content .btn-primary{margin-top:6px}
-
-  /* ---------- TESTIMONIALS — CARROUSEL INFINI ---------- */
-  .testimonials{
-    background:#fff;border-top:1px solid var(--border);border-bottom:1px solid var(--border);
-    overflow:hidden;
-  }
-  .marquee{
-    position:relative;
-    overflow:hidden;
-    -webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);
-            mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);
-  }
-  .marquee-track{
-    display:flex;
-    gap:24px;
-    width:max-content;
-    animation:scroll 45s linear infinite;
-    will-change:transform;
-  }
-  .marquee:hover .marquee-track{animation-play-state:paused}
-  @keyframes scroll{
-    from{transform:translateX(0)}
-    to{transform:translateX(-50%)}
-  }
-  .testi-card{
-    flex:0 0 340px;
-    background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);
-    padding:26px 24px;display:flex;flex-direction:column;
-    transition:.25s;
-  }
-  .testi-card:hover{box-shadow:var(--shadow);border-color:#d9d4c9;transform:translateY(-3px)}
-  .testi-stars{color:#f5a623;font-size:1rem;letter-spacing:2px;margin-bottom:12px}
-  .testi-text{font-size:.94rem;color:var(--ink);font-style:italic;margin-bottom:20px;flex:1}
-  .testi-author{display:flex;align-items:center;gap:14px}
-  .testi-author img{
-    width:54px;height:54px;border-radius:50%;object-fit:cover;
-    border:2px solid #fff;box-shadow:0 3px 10px rgba(0,0,0,.1);
-  }
-  .testi-author .info strong{display:block;font-size:.92rem}
-  .testi-author .info small{color:var(--muted);font-size:.78rem}
-
-  /* ---------- COMMITMENTS ---------- */
-  .commit{background:var(--bg)}
-  .commit-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
-  .commit-card{
-    display:flex;gap:18px;background:#fff;border:1px solid var(--border);
-    border-radius:var(--radius);padding:26px;align-items:flex-start;
-  }
-  .commit-card .ico{
-    flex:0 0 52px;width:52px;height:52px;border-radius:14px;
-    background:var(--green-soft);display:grid;place-items:center;
-  }
-  .commit-card .ico svg{width:26px;height:26px;stroke:var(--green);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-  .commit-card h3{font-size:1rem;margin-bottom:6px}
-  .commit-card p{font-size:.88rem;color:var(--muted)}
-
-  /* ---------- FAQ ---------- */
-  .faq{background:#fff;border-top:1px solid var(--border)}
-  .faq-list{max-width:800px;margin:0 auto;display:grid;gap:14px}
-  .faq-item{
-    background:var(--bg);border:1px solid var(--border);border-radius:14px;
-    overflow:hidden;transition:.2s;
-  }
-  .faq-item[open]{border-color:var(--primary);box-shadow:0 6px 18px rgba(241,47,35,.08)}
-  .faq-item summary{
-    list-style:none;cursor:pointer;padding:18px 22px;font-weight:700;font-size:.98rem;
-    display:flex;align-items:center;justify-content:space-between;gap:16px;
-  }
-  .faq-item summary::-webkit-details-marker{display:none}
-  .faq-item summary::after{
-    content:"+";font-size:1.5rem;font-weight:400;color:var(--primary);
-    transition:transform .25s;line-height:1;
-  }
-  .faq-item[open] summary::after{transform:rotate(45deg)}
-  .faq-item .faq-body{padding:0 22px 20px;color:var(--muted);font-size:.92rem}
 
   /* ---------- FINAL CTA ---------- */
   .final{
-    background:linear-gradient(135deg,var(--primary),#ff5a3c 60%,#ff8a3d);
-    color:#fff;text-align:center;
+    background:var(--black);color:var(--white);text-align:center;
   }
-  .final h2{font-size:clamp(1.6rem,3vw,2.3rem);margin-bottom:14px;letter-spacing:-.4px}
-  .final p{color:rgba(255,255,255,.9);max-width:52ch;margin:0 auto 30px}
-  .final .btn-primary{background:#fff;color:var(--primary);box-shadow:0 10px 26px rgba(0,0,0,.18)}
-  .final .btn-primary:hover{background:#fff;transform:translateY(-2px);color:var(--primary-dark)}
+  .final h2{font-size:clamp(1.6rem,3vw,2.3rem);margin-bottom:16px;color:var(--white)}
+  .final p{color:var(--gray-silver);max-width:52ch;margin:0 auto 32px}
+  .final .btn-primary{background:var(--primary);color:var(--white);box-shadow:0 6px 20px rgba(227,30,36,.35)}
+  .final .btn-primary:hover{background:var(--primary-dark);transform:translateY(-1px)}
 
-  /* ---------- FOOTER (fond blanc) ---------- */
+  /* ---------- FOOTER ---------- */
   footer{
-    background:#ffffff;
-    color:var(--ink);
-    padding:52px 0 28px;
-    font-size:.9rem;
-    border-top:1px solid var(--border);
+    background:var(--white);color:var(--black);
+    padding:56px 0 28px;font-size:.9rem;
+    border-top:1px solid var(--gray-silver);
   }
-  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;margin-bottom:36px}
-  footer h4{color:var(--ink);font-size:.95rem;margin-bottom:14px;letter-spacing:.3px}
-  footer p,footer li{color:var(--muted);font-size:.86rem;line-height:1.8}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;margin-bottom:40px}
+  footer h4{
+    color:var(--black);font-size:.85rem;margin-bottom:14px;
+    text-transform:uppercase;letter-spacing:1px;font-weight:600;
+  }
+  footer p,footer li{color:var(--gray-medium);font-size:.85rem;line-height:1.8}
   footer ul{list-style:none}
-  footer a{color:var(--green);font-weight:600}
-  footer a:hover{color:var(--primary);text-decoration:underline}
+  footer a{color:var(--black);font-weight:500}
+  footer a:hover{color:var(--primary)}
   .foot-brand{margin-bottom:16px}
-  .foot-brand img{height:52px;border-radius:10px}
+  .foot-brand img{height:92px;border-radius:4px}
   .foot-bottom{
-    border-top:1px solid var(--border);
-    padding-top:22px;text-align:center;font-size:.78rem;color:var(--muted);
+    border-top:1px solid var(--gray-silver);
+    padding-top:24px;text-align:center;font-size:.75rem;color:var(--gray-medium);
   }
 
   /* ---------- RESPONSIVE ---------- */
   @media (max-width:960px){
     .hero-grid{grid-template-columns:1fr;gap:40px}
-    .commit-grid{grid-template-columns:1fr}
     .foot-grid{grid-template-columns:1fr 1fr}
-    .testi-card{flex-basis:300px}
     .why-container{grid-template-columns:1fr;gap:36px}
     .why-content{text-align:center}
     .why-content h2::after{margin:16px auto 0}
   }
   @media (max-width:620px){
     .brand img{height:44px}
-    .hero{padding:44px 0 56px}
+    .hero{padding:48px 0 60px}
     .form-card{padding:28px 22px}
     .foot-grid{grid-template-columns:1fr;gap:28px}
     section{padding:56px 0}
-    .testi-card{flex-basis:270px}
-    .marquee-track{animation-duration:60s}
   }
 </style>
 </head>
 <body>
 
-<!-- HEADER — logo uniquement -->
+<!-- HEADER -->
 <header>
   <div class="container nav">
     <a href="#" class="brand" aria-label="Nutridelta">
-      <img src="https://nutridelta.fr/img/logo-1790518843.jpg" alt="Logo Nutridelta">
+      <img src="./images/logo.jpg" alt="Logo Nutridelta">
     </a>
   </div>
 </header>
@@ -318,28 +238,25 @@
 <section class="hero">
   <div class="container hero-grid">
     <div>
-      <span class="eyebrow">Guide gratuit · Bien-être au naturel</span>
+      <span class="eyebrow">Suivi gratuit · Bien-être au naturel</span>
       <h1>Le naturel au service de <em>votre bien-être</em>, chaque jour.</h1>
       <p class="lead">
-        Découvrez notre gamme de compléments alimentaires et de produits de phytothérapie,
-        conçus pour accompagner votre équilibre au quotidien. Formules à base de plantes,
-        de vitamines et de nutriments, avec des conseils d'utilisation clairs.
+        Découvrez l'univers de la phytothérapie et des compléments alimentaires à travers les bienfaits des plantes, des vitamines et des nutriments essentiels. Une approche naturelle pour mieux comprendre les besoins de votre organisme et préserver votre équilibre au quotidien.
       </p>
       <ul class="hero-points">
-        <li><span class="check">✓</span> Un guide illustré, facile à lire et à appliquer</li>
         <li><span class="check">✓</span> Des conseils concrets sur les plantes et les nutriments</li>
         <li><span class="check">✓</span> Envoi immédiat par email, sans engagement</li>
       </ul>
       <button class="btn-primary" onclick="document.getElementById('guide-form').scrollIntoView({behavior:'smooth'})">
-        Validé avec une experte →
+        Contacter un conseiller(e) →
       </button>
       <p class="hero-note">Marque française · Société THE FOLLOWER · Montguyon (17)</p>
     </div>
 
     <!-- FORMULAIRE -->
     <div class="form-card" id="guide-form">
-      <h2>Recevez votre guide gratuit</h2>
-      <p>Remplissez ce formulaire pour recevoir votre guide par email.</p>
+      <h2>Votre bien-être, notre priorité</h2>
+      <p>En remplissant ce formulaire, vous acceptez de bénéficier de conseils gratuits et personnalisés.</p>
 
       <form id="nutriForm" novalidate>
         <div class="field">
@@ -373,11 +290,11 @@
 
         <label class="consent">
           <input type="checkbox" id="consent" required>
-          <span>J'accepte que mes données soient utilisées par Nutridelta (THE FOLLOWER) pour m'envoyer le guide et, si je le souhaite, me contacter. Elles ne sont ni vendues ni cédées.</span>
+          <span>J'accepte que mes données soient utilisées par Nutridelta (THE FOLLOWER) pour m'envoyer et, si je le souhaite, me contacter. Elles ne sont ni vendues ni cédées.</span>
         </label>
 
         <button type="submit" class="btn-primary form-btn" id="submitBtn" disabled>
-          Valider avec une experte
+          Contacter un conseiller(e)
         </button>
         <div class="form-msg" id="formMsg" role="status" aria-live="polite"></div>
       </form>
@@ -385,7 +302,7 @@
   </div>
 </section>
 
-<!-- WHY NATURAL (image + texte) -->
+<!-- WHY NATURAL -->
 <section class="why">
   <div class="container why-container">
     <div class="why-image">
@@ -403,207 +320,8 @@
       </p>
       <p class="source">Nutridelta est éditée par THE FOLLOWER, société basée à Montguyon, en Charente-Maritime.</p>
       <button class="btn-primary" onclick="document.getElementById('guide-form').scrollIntoView({behavior:'smooth'})">
-        Validé avec une experte →
+        Contacter un conseiller(e) →
       </button>
-    </div>
-  </div>
-</section>
-
-<!-- TÉMOIGNAGES — CARROUSEL INFINI -->
-<section class="testimonials">
-  <div class="container">
-    <div class="section-head">
-      <span class="kicker">Ils nous font confiance</span>
-      <h2>Ce que disent nos clients</h2>
-      <p>Des retours authentiques de personnes qui ont adopté nos formules naturelles.</p>
-    </div>
-  </div>
-
-  <div class="marquee" aria-label="Témoignages clients">
-    <div class="marquee-track" id="marqueeTrack">
-      <!-- Groupe 1 -->
-      <article class="testi-card">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-text">« Depuis que je prends Sommeil Plus le soir, je m'endors beaucoup plus facilement. Une vraie découverte pour moi. »</p>
-        <div class="testi-author">
-          <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop" alt="Marie L.">
-          <div class="info"><strong>Marie L.</strong><small>Cliente depuis 2023</small></div>
-        </div>
-      </article>
-      <article class="testi-card">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-text">« Le guide m'a aidé à comprendre quels compléments étaient adaptés à mes besoins. Conseils clairs et sans jargon. »</p>
-        <div class="testi-author">
-          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop" alt="Thomas R.">
-          <div class="info"><strong>Thomas R.</strong><small>Client depuis 2024</small></div>
-        </div>
-      </article>
-      <article class="testi-card">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-text">« Livraison rapide, produits de qualité et un service client vraiment à l'écoute. Je recommande sans hésiter. »</p>
-        <div class="testi-author">
-          <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop" alt="Sophie M.">
-          <div class="info"><strong>Sophie M.</strong><small>Cliente depuis 2022</small></div>
-        </div>
-      </article>
-      <article class="testi-card">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-text">« J'apprécie la transparence sur la composition. On sait exactement ce qu'on prend, c'est rassurant. »</p>
-        <div class="testi-author">
-          <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop" alt="Julien P.">
-          <div class="info"><strong>Julien P.</strong><small>Client depuis 2023</small></div>
-        </div>
-      </article>
-      <article class="testi-card">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-text">« La gelée royale m'a redonné de l'énergie au quotidien. Je la recommande à toutes mes amies. »</p>
-        <div class="testi-author">
-          <img src="https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?w=100&h=100&fit=crop" alt="Nathalie D.">
-          <div class="info"><strong>Nathalie D.</strong><small>Cliente depuis 2024</small></div>
-        </div>
-      </article>
-      <article class="testi-card">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-text">« Enfin une marque française qui explique clairement ce qu'elle met dans ses produits. Bravo pour la pédagogie. »</p>
-        <div class="testi-author">
-          <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=100&h=100&fit=crop" alt="Pierre G.">
-          <div class="info"><strong>Pierre G.</strong><small>Client depuis 2023</small></div>
-        </div>
-      </article>
-      <!-- Groupe 2 — copie identique pour boucle infinie sans coupure -->
-      <article class="testi-card" aria-hidden="true">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-text">« Depuis que je prends Sommeil Plus le soir, je m'endors beaucoup plus facilement. Une vraie découverte pour moi. »</p>
-        <div class="testi-author">
-          <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop" alt="">
-          <div class="info"><strong>Marie L.</strong><small>Cliente depuis 2023</small></div>
-        </div>
-      </article>
-      <article class="testi-card" aria-hidden="true">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-text">« Le guide m'a aidé à comprendre quels compléments étaient adaptés à mes besoins. Conseils clairs et sans jargon. »</p>
-        <div class="testi-author">
-          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop" alt="">
-          <div class="info"><strong>Thomas R.</strong><small>Client depuis 2024</small></div>
-        </div>
-      </article>
-      <article class="testi-card" aria-hidden="true">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-text">« Livraison rapide, produits de qualité et un service client vraiment à l'écoute. Je recommande sans hésiter. »</p>
-        <div class="testi-author">
-          <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop" alt="">
-          <div class="info"><strong>Sophie M.</strong><small>Cliente depuis 2022</small></div>
-        </div>
-      </article>
-      <article class="testi-card" aria-hidden="true">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-text">« J'apprécie la transparence sur la composition. On sait exactement ce qu'on prend, c'est rassurant. »</p>
-        <div class="testi-author">
-          <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop" alt="">
-          <div class="info"><strong>Julien P.</strong><small>Client depuis 2023</small></div>
-        </div>
-      </article>
-      <article class="testi-card" aria-hidden="true">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-text">« La gelée royale m'a redonné de l'énergie au quotidien. Je la recommande à toutes mes amies. »</p>
-        <div class="testi-author">
-          <img src="https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?w=100&h=100&fit=crop" alt="">
-          <div class="info"><strong>Nathalie D.</strong><small>Cliente depuis 2024</small></div>
-        </div>
-      </article>
-      <article class="testi-card" aria-hidden="true">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-text">« Enfin une marque française qui explique clairement ce qu'elle met dans ses produits. Bravo pour la pédagogie. »</p>
-        <div class="testi-author">
-          <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=100&h=100&fit=crop" alt="">
-          <div class="info"><strong>Pierre G.</strong><small>Client depuis 2023</small></div>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- COMMITMENTS -->
-<section class="commit">
-  <div class="container">
-    <div class="section-head">
-      <span class="kicker">Nos engagements</span>
-      <h2>Un accompagnement transparent et fiable</h2>
-    </div>
-    <div class="commit-grid">
-      <div class="commit-card">
-        <div class="ico" aria-hidden="true">
-          <svg viewBox="0 0 24 24"><path d="M9 12h6M9 16h6M9 8h6"/><rect x="4" y="3" width="16" height="18" rx="2"/></svg>
-        </div>
-        <div>
-          <h3>Transparence</h3>
-          <p>La composition, le dosage et les précautions d'emploi de chaque produit figurent sur sa fiche.</p>
-        </div>
-      </div>
-      <div class="commit-card">
-        <div class="ico" aria-hidden="true">
-          <svg viewBox="0 0 24 24"><path d="M3 7h11v10H3z"/><path d="M14 10h4l3 3v4h-7z"/><circle cx="7" cy="18" r="1.6"/><circle cx="17.5" cy="18" r="1.6"/></svg>
-        </div>
-        <div>
-          <h3>Livraison rapide</h3>
-          <p>Expédition en France métropolitaine sous 3 à 5 jours ouvrés, par Colissimo ou en point relais Mondial Relay — 9,60 € TTC.</p>
-        </div>
-      </div>
-      <div class="commit-card">
-        <div class="ico" aria-hidden="true">
-          <svg viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/><circle cx="12" cy="15" r="1.4"/></svg>
-        </div>
-        <div>
-          <h3>Paiement sécurisé</h3>
-          <p>Par carte bancaire via Stripe avec authentification 3-D Secure, par chèque ou par virement.</p>
-        </div>
-      </div>
-      <div class="commit-card">
-        <div class="ico" aria-hidden="true">
-          <svg viewBox="0 0 24 24"><path d="M4 5a2 2 0 0 1 2-2h2l2 4-2 1a12 12 0 0 0 6 6l1-2 4 2v2a2 2 0 0 1-2 2A16 16 0 0 1 4 5z"/></svg>
-        </div>
-        <div>
-          <h3>Un vrai service client</h3>
-          <p>Une équipe joignable par téléphone et par e-mail pour vous conseiller et suivre votre commande.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FAQ -->
-<section class="faq">
-  <div class="container">
-    <div class="section-head">
-      <span class="kicker">Questions fréquentes</span>
-      <h2>Vous avez des questions ?</h2>
-      <p>Retrouvez les réponses aux questions les plus courantes.</p>
-    </div>
-    <div class="faq-list">
-      <details class="faq-item">
-        <summary>Le guide est-il vraiment gratuit ?</summary>
-        <div class="faq-body">Oui, totalement gratuit. Il vous suffit de renseigner votre email dans le formulaire pour le recevoir immédiatement. Aucun engagement, aucune carte bancaire demandée.</div>
-      </details>
-      <details class="faq-item">
-        <summary>Comment vais-je recevoir mon guide ?</summary>
-        <div class="faq-body">Le guide vous est envoyé par email, à l'adresse que vous avez indiquée, dans les minutes qui suivent votre inscription. Pensez à vérifier vos spams si vous ne le voyez pas arriver.</div>
-      </details>
-      <details class="faq-item">
-        <summary>Mes données sont-elles protégées ?</summary>
-        <div class="faq-body">Oui. Vos données sont utilisées uniquement par Nutridelta (THE FOLLOWER) pour vous envoyer le guide et, si vous l'avez accepté, pour vous contacter. Elles ne sont ni vendues ni cédées à des tiers.</div>
-      </details>
-      <details class="faq-item">
-        <summary>Les compléments alimentaires remplacent-ils une alimentation équilibrée ?</summary>
-        <div class="faq-body">Non. Les compléments alimentaires viennent en complément d'une alimentation variée et équilibrée et d'un mode de vie sain. Ils ne remplacent en aucun cas un traitement médical. En cas de doute, demandez conseil à votre médecin ou pharmacien.</div>
-      </details>
-      <details class="faq-item">
-        <summary>Quels sont les délais et frais de livraison ?</summary>
-        <div class="faq-body">Nous expédions en France métropolitaine sous 3 à 5 jours ouvrés, par Colissimo ou en point relais Mondial Relay, pour 9,60 € TTC.</div>
-      </details>
-      <details class="faq-item">
-        <summary>Puis-je vous contacter directement ?</summary>
-        <div class="faq-body">Bien sûr. Vous pouvez nous joindre par téléphone au 09 72 17 14 08 (appel non surtaxé) ou par email à contact@nutridelta.fr. Notre équipe est là pour vous conseiller.</div>
-      </details>
     </div>
   </div>
 </section>
@@ -612,20 +330,20 @@
 <section class="final">
   <div class="container">
     <h2>Prenez soin de vous, au naturel</h2>
-    <p>Votre guide gratuit vous attend. Il suffit de laisser votre email pour le recevoir immédiatement.</p>
+    <p>Votre Suivi gratuit vous attend. Il suffit de laisser votre email pour le recevoir immédiatement.</p>
     <button class="btn-primary" onclick="document.getElementById('guide-form').scrollIntoView({behavior:'smooth'})">
-      Validé avec une experte
+      Contacter un conseiller(e)
     </button>
   </div>
 </section>
 
-<!-- FOOTER (fond blanc) -->
+<!-- FOOTER -->
 <footer>
   <div class="container">
     <div class="foot-grid">
       <div>
         <div class="foot-brand">
-          <img src="https://nutridelta.fr/img/logo-1790518843.jpg" alt="Nutridelta">
+          <img src="./images/logo.jpg" alt="Nutridelta">
         </div>
         <p>Marque française de compléments alimentaires et de produits de phytothérapie, éditée par THE FOLLOWER.</p>
       </div>
@@ -707,56 +425,23 @@ form.addEventListener('submit', async function (e) {
   btn.textContent = 'Envoi en cours…';
 
   try {
-    /*
-      ⚠️ ENVOI RÉEL vers contact@nutridelta.fr — voir note précédente.
-      Remplacer la simulation ci-dessous par un fetch Formspree ou un endpoint backend.
-    */
     await new Promise(resolve => setTimeout(resolve, 900));
 
     btn.textContent = '✓ Validé — Votre demande a bien été envoyée';
     btn.classList.add('success');
     msg.className = 'form-msg ok show';
-    msg.innerHTML = 'Merci <strong>' + data.prenom + '</strong> ! Votre guide gratuit sera envoyé à <strong>' + data.email + '</strong> dans quelques instants.';
+    msg.innerHTML = 'Merci <strong>' + data.prenom + '</strong> ! Votre Suivi gratuit sera envoyé à <strong>' + data.email + '</strong> dans quelques instants.';
 
     form.reset();
     btn.disabled = true;
 
   } catch (err) {
     btn.disabled = false;
-    btn.textContent = 'Valider avec une experte';
+    btn.textContent = 'Contacter un conseiller(e)';
     msg.className = 'form-msg err show';
     msg.textContent = 'Une erreur est survenue. Merci de réessayer ou de nous écrire à contact@nutridelta.fr.';
   }
 });
-
-/* ============================================================
-   CARROUSEL INFINI — duplication dynamique pour boucle parfaite
-   ============================================================ */
-(function initMarquee(){
-  const track = document.getElementById('marqueeTrack');
-  if (!track) return;
-
-  const originalHTML = track.innerHTML;
-
-  function ensureEnoughContent(){
-    const needed = window.innerWidth * 2;
-    if (track.scrollWidth < needed) {
-      track.innerHTML = originalHTML + originalHTML;
-    }
-  }
-
-  ensureEnoughContent();
-
-  let t;
-  window.addEventListener('resize', () => {
-    clearTimeout(t);
-    t = setTimeout(ensureEnoughContent, 300);
-  });
-
-  document.addEventListener('visibilitychange', () => {
-    track.style.animationPlayState = document.hidden ? 'paused' : 'running';
-  });
-})();
 </script>
 </body>
 </html>
