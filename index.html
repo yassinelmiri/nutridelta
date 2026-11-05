@@ -19,7 +19,6 @@
     --gray-medium:#808080;
     --black-charcoal:#292929;
 
-    /* Alias pour compatibilité */
     --ink:var(--black);
     --muted:var(--gray-medium);
     --bg:var(--white);
@@ -30,6 +29,14 @@
 
     --font-title:'Montserrat', system-ui, sans-serif;
     --font-text:'Roboto', system-ui, sans-serif;
+
+    /* ===== MOTIF NID D'ABEILLE (hexagones) ===== */
+    /* Hexagone fin gris clair sur fond blanc — version discrète */
+    --hex-pattern:
+      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='56' height='96' viewBox='0 0 56 96'><g fill='none' stroke='%23E6E6E6' stroke-width='1'><path d='M28 0 L56 16 L56 48 L28 64 L0 48 L0 16 Z'/><path d='M28 64 L56 80 L56 112 L28 128 L0 112 L0 80 Z'/></g></svg>");
+    /* Version hero un peu plus présente (rouge très pâle + gris) */
+    --hex-pattern-hero:
+      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='56' height='96' viewBox='0 0 56 96'><g fill='none' stroke='%23EDEDED' stroke-width='1'><path d='M28 0 L56 16 L56 48 L28 64 L0 48 L0 16 Z'/><path d='M28 64 L56 80 L56 112 L28 128 L0 112 L0 80 Z'/></g></svg>");
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
@@ -41,16 +48,18 @@
     line-height:1.65;
     -webkit-font-smoothing:antialiased;
     overflow-x:hidden;
+    /* Fond global : nid d'abeille très discret */
+    background-image:var(--hex-pattern);
+    background-size:56px 96px;
+    background-attachment:fixed;
   }
   img{max-width:100%;display:block}
   a{color:inherit;text-decoration:none}
   .container{width:min(1120px,92%);margin-inline:auto}
 
   h1,h2,h3,h4{font-family:var(--font-title);letter-spacing:-.2px}
-  h1{font-weight:800}
-  h2{font-weight:800}
-  h3{font-weight:600}
-  h4{font-weight:600}
+  h1,h2{font-weight:800}
+  h3,h4{font-weight:600}
 
   /* ---------- HEADER ---------- */
   header{
@@ -65,14 +74,24 @@
   /* ---------- HERO ---------- */
   .hero{
     position:relative;overflow:hidden;
-    background:var(--white);
+    background-color:var(--white);
+    background-image:var(--hex-pattern-hero);
+    background-size:56px 96px;
     padding:72px 0 80px;
     border-bottom:1px solid var(--gray-silver);
   }
+  /* Voile blanc pour garantir la lisibilité du texte sur le motif */
+  .hero::before{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg, rgba(255,255,255,.65), rgba(255,255,255,.85));
+    pointer-events:none;
+  }
+  .hero .container{position:relative;z-index:1}
   .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
   .eyebrow{
     display:inline-flex;align-items:center;gap:8px;
-    background:var(--gray-light);color:var(--black);
+    background:var(--white);color:var(--black);
+    border:1px solid var(--gray-silver);
     font-family:var(--font-title);
     font-weight:600;font-size:.75rem;letter-spacing:1px;text-transform:uppercase;
     padding:8px 16px;border-radius:4px;margin-bottom:24px;
@@ -141,27 +160,22 @@
   @keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 
   /* ---------- SECTIONS ---------- */
-  section{padding:80px 0}
-  .section-head{max-width:680px;margin:0 auto 48px;text-align:center}
-  .section-head .kicker{
-    display:inline-block;color:var(--primary);font-family:var(--font-title);
-    font-weight:800;font-size:.75rem;letter-spacing:1.4px;text-transform:uppercase;margin-bottom:12px;
-  }
-  .section-head h2{font-size:clamp(1.6rem,3vw,2.2rem);margin-bottom:16px;color:var(--black)}
-  .section-head p{color:var(--gray-medium);font-size:1rem}
+  section{padding:80px 0;position:relative}
 
-  /* ---------- WHY NATURAL ---------- */
+  /* Section "pourquoi" : fond gris clair + motif hexagonal plus dense */
   .why{
-    background:var(--gray-light);
+    background-color:var(--gray-light);
+    background-image:
+      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='56' height='96' viewBox='0 0 56 96'><g fill='none' stroke='%23E0E0E0' stroke-width='1'><path d='M28 0 L56 16 L56 48 L28 64 L0 48 L0 16 Z'/><path d='M28 64 L56 80 L56 112 L28 128 L0 112 L0 80 Z'/></g></svg>");
+    background-size:56px 96px;
     border-top:1px solid var(--gray-silver);
     border-bottom:1px solid var(--gray-silver);
   }
-  .why-container{
-    display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;
-  }
+  .why-container{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;position:relative;z-index:1}
   .why-image img{
     width:100%;height:auto;border-radius:8px;
     box-shadow:var(--shadow);object-fit:cover;
+    border:1px solid var(--gray-silver);
   }
   .why-content h2{
     font-size:clamp(1.6rem,3vw,2.2rem);
@@ -176,9 +190,14 @@
   .why-content .btn-primary{margin-top:6px}
 
   /* ---------- FINAL CTA ---------- */
+  /* Section noire : motif hexa en rouge sombre très subtil */
   .final{
-    background:var(--black);color:var(--white);text-align:center;
+    background-color:var(--black);color:var(--white);text-align:center;
+    background-image:
+      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='56' height='96' viewBox='0 0 56 96'><g fill='none' stroke='%23222222' stroke-width='1'><path d='M28 0 L56 16 L56 48 L28 64 L0 48 L0 16 Z'/><path d='M28 64 L56 80 L56 112 L28 128 L0 112 L0 80 Z'/></g></svg>");
+    background-size:56px 96px;
   }
+  .final .container{position:relative;z-index:1}
   .final h2{font-size:clamp(1.6rem,3vw,2.3rem);margin-bottom:16px;color:var(--white)}
   .final p{color:var(--gray-silver);max-width:52ch;margin:0 auto 32px}
   .final .btn-primary{background:var(--primary);color:var(--white);box-shadow:0 6px 20px rgba(227,30,36,.35)}
@@ -220,6 +239,8 @@
     .form-card{padding:28px 22px}
     .foot-grid{grid-template-columns:1fr;gap:28px}
     section{padding:56px 0}
+    body{background-size:40px 68px}
+    .hero,.why,.final{background-size:40px 68px}
   }
 </style>
 </head>
